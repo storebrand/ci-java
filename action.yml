@@ -36,8 +36,6 @@ runs:
       run: |
         export IMAGE_NAME_FROM_REPO="$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f2)"
         echo "::set-env name=IMAGE::$IMAGE_NAME_FROM_REPO"
-    - name: Checkout
-      uses: actions/checkout@v2
 
     
 
