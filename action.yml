@@ -20,15 +20,14 @@ inputs:
     required: true
 outputs:
   random-number:
-  value: ${{ steps.random-number-generator.outputs.random-id }}
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   steps:
-
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
-    runs-on: ubuntu-latest
-    steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
     - name: Create release IMAGE name
       run: |
         export IMAGE_NAME_FROM_REPO="$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f2)"
@@ -59,3 +58,4 @@ runs:
       run: |
         echo "Workaround as we cannot use GH_TOKEN in this setting - it does not work"
         cp ./.github/settings.xml  ~/.m2/settings.xml
+ 
