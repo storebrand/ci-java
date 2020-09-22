@@ -27,3 +27,4 @@ runs:
   steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
