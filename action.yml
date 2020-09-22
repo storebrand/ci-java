@@ -5,7 +5,7 @@ inputs:
     description: 'Name of project to push to'
     required: true
   zone:
-    description: 'Name of zone we're running in'
+    description: 'Name of zone were running in'
     required: true
   gcloud_disable_prompt:
     description: 'Turn of prompts in gcloud'
