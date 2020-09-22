@@ -28,3 +28,6 @@ runs:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
+    - id: printenv
+      run: env
+      shell: bash
